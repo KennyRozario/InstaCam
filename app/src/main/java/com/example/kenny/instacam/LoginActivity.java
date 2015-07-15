@@ -13,6 +13,7 @@ import com.facebook.Response;
 import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
+import com.facebook.model.GraphObject;
 import com.facebook.model.GraphUser;
 import com.facebook.widget.LoginButton;
 
@@ -91,17 +92,19 @@ public class LoginActivity extends ActionBarActivity {
             }
             Bundle parameters = new Bundle();
             parameters.putSerializable("fields", "picture, first_name, last_name, birthday");
-            Request request = new Request(session, "/me", parameters , HttpMethod.GET, new Request.Callback() {
+            final Request request = new Request(session, "/me", parameters , HttpMethod.GET, new Request.Callback() {
                 @Override
                 public void onCompleted(Response response) {
                     if (session == Session.getActiveSession()) {
                         if (response.getGraphObject() != null) {
-                            //    Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                            //    startActivity(i);
+                            GraphObject graphObject = response.getGraphObject();
+                            User.setCurrentUser(graphObject);
+                            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(i);
                         }
                     }
                     if (response.getError() != null) {
-                        //TODO: add some error handling
+                        Log.d(TAG, "Error is: " + response.getError());
                     }
                 }
             });
