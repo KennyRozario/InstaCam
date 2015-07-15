@@ -47,7 +47,7 @@
                 android:id="@+id/feed_item_photo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="center"
+                android:scaleType="centerCrop"
                 android:src="@mipmap/car_photography_mustang_shelby_logo"/>
         </com.example.kenny.material.RatioLayout>
 

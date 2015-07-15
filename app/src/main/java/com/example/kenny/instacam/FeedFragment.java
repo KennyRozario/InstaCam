@@ -35,8 +35,6 @@ public class FeedFragment extends Fragment {
         RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.feed_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mPhotos = new ArrayList<Photo>();
-        mPhotos.add(new Photo());
-        mPhotos.add(new Photo());
         mAdapter = new FeedAdapter(getActivity(), mPhotos);
         recyclerView.setAdapter(mAdapter);
 
@@ -44,7 +42,7 @@ public class FeedFragment extends Fragment {
     }
 
     public void addPhoto(Photo photo){
-        mPhotos.add(photo);
+        mPhotos.add(0, photo);
         mAdapter.notifyDataSetChanged();
     }
 
