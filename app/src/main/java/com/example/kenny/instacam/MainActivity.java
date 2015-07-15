@@ -19,6 +19,7 @@ public class MainActivity extends ActionBarActivity implements MaterialTabListen
 
     private static final int NEW_PHOTO_REQUEST = 10;
     private static final String TAG = "MainActivity";
+    public static final String EXTRA = "MainActivity";
     private FeedFragment mFeedFragment;
     private ProfileFragment mProfileFragment;
     private MaterialTabHost mTabBar;
