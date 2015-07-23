@@ -108,7 +108,6 @@ public class LoginActivity extends ActionBarActivity {
                     }
                 }
             });
-
             request.executeAsync();
         } else {
             Log.d(TAG, "Session closed");

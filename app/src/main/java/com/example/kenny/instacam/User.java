@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.facebook.model.GraphObject;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,7 +12,7 @@ import java.util.Date;
 /**
  * Created by Kenny on 2015-07-15.
  */
-public class User {
+public class User implements Serializable{
 
     private static final String TAG = "User";
 
@@ -31,6 +32,8 @@ public class User {
             sCurrentUser = new User(graphObject);
         }
     }
+
+
 
     User (GraphObject graphObject){
         mFirstName = (String) graphObject.getProperty("first_name");
